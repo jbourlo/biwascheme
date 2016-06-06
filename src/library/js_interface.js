@@ -1,4 +1,4 @@
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+if( typeof(BiwaScheme)!='object' ) {
 
   //
   // interface to javascript

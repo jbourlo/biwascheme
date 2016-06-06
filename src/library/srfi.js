@@ -4,7 +4,6 @@
 // should be src/library/srfi/1.js, etc (in the future).
 //
 
-with(BiwaScheme) {
   
   //
   // srfi-1 (list)
@@ -359,4 +358,3 @@ with(BiwaScheme) {
   // see src/library/node_functions.js for:
   // - srfi-98 (get-environment-variable)
   //
-}

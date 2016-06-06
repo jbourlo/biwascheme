@@ -1,7 +1,6 @@
 //
 // Dumper - graphical state dumper
 //
-with(BiwaScheme) {
 
 BiwaScheme.Dumper = BiwaScheme.Class.create({
   initialize: function(dumparea){
@@ -237,7 +236,6 @@ BiwaScheme.Dumper = BiwaScheme.Class.create({
       this.dump_fold();
   }
 });
-} // with(BiwaScheme);
 
 BiwaScheme.Dumper.toggle_fold = function(n){
   $(".fold"+n, this.dumparea).toggle();

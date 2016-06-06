@@ -2,7 +2,7 @@
 // R6RS Base library
 //
 
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+if( typeof(BiwaScheme)!='object' ) {
   ///
   /// R6RS Base library
   ///

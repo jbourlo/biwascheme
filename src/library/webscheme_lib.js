@@ -1,4 +1,4 @@
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+if( typeof(BiwaScheme)!='object' ) {
 
   define_libfunc("read-line", 0, 1, function(ar){
     var port = ar[0] || Port.current_input;
