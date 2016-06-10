@@ -4,6 +4,9 @@
 VERSION_FILE_IN =  src/version.js.in
 VERSION_FILE    =  src/version.js
 
+FUNCTION_START  = "module.exports=(function ($$, _){"
+FUNCTION_END    = "return BiwaScheme; })"
+
 BASIC_FILES =                                     \
   src/header.js                                   \
   src/system/class.js                             \
@@ -31,7 +34,6 @@ BASIC_FILES =                                     \
   src/library/r6rs_lib.js                         \
   src/library/js_interface.js                     \
   src/library/extra_lib.js                        \
-  src/library/node_functions.js                   \
   src/library/srfi.js
 
 CONSOLE_FILES =                                   \
@@ -40,9 +42,6 @@ CONSOLE_FILES =                                   \
 PLAIN_FILES =                                     \
   $(BASIC_FILES)                                  \
   src/library/webscheme_lib.js                    \
-  src/platforms/browser/dumper.js                 \
-  src/platforms/browser/console.js                \
-  src/platforms/browser/release_initializer.js
 
 BROWSER_FILES =                                   \
   src/deps/jquery.js                              \
@@ -57,9 +56,11 @@ build: release/biwascheme.js release/console_biwascheme.js release/node_biwasche
 $(VERSION_FILE): $(VERSION_FILE_IN) $(BROWSER_FILES) VERSION Makefile
 	cat $< | sed -e "s/@GIT_COMMIT@/`git log -1 --pretty=format:%H`/" | sed -e "s/@VERSION@/`cat VERSION`/" > $@
 
-release/biwascheme.js: $(VERSION_FILE) $(BROWSER_FILES) Makefile
-	cat $(VERSION_FILE) > $@
-	cat $(BROWSER_FILES) >> $@
+release/biwascheme.js: $(VERSION_FILE) $(PLAIN_FILES) Makefile
+	echo $(FUNCTION_START) > $@
+	cat $(VERSION_FILE) >> $@
+	cat $(PLAIN_FILES) >> $@
+	echo $(FUNCTION_END) >> $@
 	@echo "Wrote " $@
 
 release/biwascheme-min.js: release/biwascheme.js
