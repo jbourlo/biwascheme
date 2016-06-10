@@ -1,6 +1,8 @@
 node_modules/
 release/biwascheme.js
 release/biwascheme-min.js
+release/biwascheme-plain.js
+release/biwascheme-plain-min.js
 release/console_biwascheme.js
 release/node_biwascheme.js
 src/version.js
